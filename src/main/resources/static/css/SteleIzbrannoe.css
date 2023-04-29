@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+body{
+    margin: 0;
+    background:url("../img/1626265529_14-kartinkin-com-p-poloski-tekstura-besshovnaya-krasivo-18.jpg");
+    background-size: cover;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+a, a:active, a:hover{
+    text-decoration: none;
+    color: white;
+}
+main{
+    display: flex;
+    align-items: start;
+    min-height: 68vh;
+    width: 80vw;
+    min-height: 68vh;
+    margin: 0 10vw;
+    background-color: white;
+    padding: 10px 10px;
+
+}
+main h2{
+    /*border-style: solid;*/
+    border-right: 5px  solid #fa7405;
+}
+.card .but-licke{
+    background-color: #ff4343;
+}
+.but-licke .fa-heart{
+    color: #ff0000;
+}
+
+/*article{*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+
+
+
+/*    !*gap: calc((100% - 100%/3.5)/2);*!*/
+/*}*/
+/*section>h2{*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*}*/
+/*section{*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: space-around;*/
+/*    margin: 10px 0 ;*/
+/*}*/
+/*.card{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+/*    width: calc(100%/4.5);*/
+/*    height: 240px;*/
+/*    border-style: solid;*/
+/*    border-color: #fa7405;*/
+/*    border-radius: 5px;*/
+/*    padding: 2px 2px;*/
+/*}*/
+/*.card>img{*/
+/*    display: block;*/
+/*    width: 45%;*/
+/*    height: 80%;*/
+
+/*    !*object-fit: cover;*!*/
+/*}*/
+/*.card span{*/
+/*    display: block;*/
+/*    width: 55%;*/
+/*    height: 80%;*/
+/*}*/
+/*.but{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: stretch;*/
+/*    width: 100%;*/
+/*    height: 40px;*/
+/*}*/
+/*.but-buy{*/
+/*    display: block;*/
+/*    width: 50%;*/
+/*    text-align: center;*/
+/*    padding: 12px 0;*/
+/*    margin: 0;*/
+/*}*/
+
+/*.but-licke{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-around;*/
+/*    width: 50%;*/
+/*}*/
+/*.but-licke i{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+
+/*}*/
+/*.but-licke p{*/
+/*    height: 100%;*/
+/*    margin: 0;*/
+/*    padding: 12px 0;*/
+/*}*/
+

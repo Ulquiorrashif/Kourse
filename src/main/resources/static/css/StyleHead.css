@@ -1,0 +1,159 @@
+header{
+    background-color: #282828;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100vw;
+    height: 12vh;
+    min-height: 64px;
+}
+.header-img-cont{
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+}
+.header-img-cont img{
+    width: 126px;
+    height: 64px;
+}
+.header-img-cont a{
+    position: absolute;
+    margin: 0 auto;
+    width: 40%;
+    height: 30%;
+}
+
+.search{
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.search >input{
+    display: block;
+    width: 95%;
+    height: 25px;
+}
+
+.header-icon-cont{
+    display: flex;
+    width: 30vw;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.fa-user-cont, .fa-heart-cont, .fa-basket-shopping-cont, .fa-books-cont{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+
+}
+header  i{
+    font-size: 1.2rem;
+}
+header a{
+    font-size: 1.2rem;
+}
+@media screen and (max-width: 950px) {
+    header{
+        position: relative;
+        /*flex-wrap: wrap;*/
+        flex-direction: column;
+        height: 10vh;
+        max-height: 75px;
+        transition: all 1s;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+        overflow: hidden;
+        z-index: 0;
+
+    }
+    .header-img-cont{
+        z-index: 13;
+        background-color: #282828;
+        width: 100%;
+        transition: all .5s;
+        height: 100%;
+        max-height: 100px;
+
+        /*height: 12vh;*/
+    }
+    .header-icon-cont{
+        min-width: 150px;
+        justify-content: space-around;
+    }
+    .header-img-cont img{
+        height: 100%;
+        width: 30vw;
+        object-fit: contain;
+    }
+    /*.search{*/
+    /*    position: absolute;*/
+    /*    top:100%;*/
+    /*    !*transform: translateY(-18vh);*!*/
+    /*    !*display: none;*!*/
+    /*    z-index: -1;*/
+
+    /*}*/
+    .header-icon-cont{
+        flex-direction: column;
+        align-items: center;
+        width: 15.5vw;
+        gap: 5px 0px;
+        /*position: absolute;*/
+        /*top:16vh;*/
+        /*z-index: -1;*/
+        /*transform: translateY(-5rem);*/
+
+    }
+    .fa-user-cont, .fa-heart-cont, .fa-basket-shopping-cont, .fa-books-cont{
+        width: 100%;
+        flex-direction: row;
+        gap: 0px 10px;
+    }
+    /*.fa-basket-shopping, .fa-heart, .fa-user, .fa-book{*/
+    /*    font-size: 30px;*/
+    /*}*/
+
+    header:hover{
+
+        transition: all 1s;
+        /*transition-delay: .5s ;*/
+        height: 30vh;
+        max-height: 310px;
+        min-height: 105px
+    }
+    /*header:hover .search{*/
+    /*    !*transition-delay: 5s ;*!*/
+    /*    !*transition: all 2s ;*!*/
+    /*    top:13.8vh;*/
+
+    /*    !*transform: translateY(0);*!*/
+
+    /*    z-index: 1;*/
+    /*}*/
+    /*header:hover .header-icon-cont{*/
+    /*    margin: 5px 0;*/
+    /*    transition: all 0.5s ;*/
+    /*    !*transition-delay: 2s ;*!*/
+    /*    transform: translateY(0px);*/
+    /*    z-index: 1;*/
+    /*}*/
+
+}
+@media screen and (min-height: 600px ) and (max-height: 1079px) and (max-width: 950px){
+    header:hover{
+        height: 270px;
+    }
+    
+}

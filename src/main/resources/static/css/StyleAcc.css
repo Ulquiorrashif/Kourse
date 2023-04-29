@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+body{
+    margin: 0;
+    background:url("../img/1626265529_14-kartinkin-com-p-poloski-tekstura-besshovnaya-krasivo-18.jpg");
+    background-size: cover;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+a, a:active, a:hover{
+    text-decoration: none;
+    color: white;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+    height: 68vh;
+    width: 80vw;
+    background-color: white;
+    margin: 0 10vw;
+}
+.choice-cont{
+    width: 60%;
+    height: 20%;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    padding-left: 10px;
+}
+.choice-reg,.choice-enter{
+    text-align: center;
+    width: 100px;
+    height: 20px;
+        /*background-color: #f68213;*/
+    /*margin-right: 10px;*/
+    border-style: solid;
+    border-top-right-radius: 10px;
+    border-top-left-radius:10px;
+    border-top-color: #282828;
+    border-left-color: #282828;
+    border-right-color: #282828;
+    border-bottom-style: none;
+
+}
+.reg-cont{
+    width: 60%;
+    height: 70%;
+
+    border: 2px solid #282828;
+    border-radius: 10px;
+
+    /*background-color: #fa7405;*/
+    /*filter: blur(10px);*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3ecad;
+    box-shadow:  0.4em 0.4em 5px rgba(122,122,122,0.5)
+
+}
+.reg-cont h3{
+    text-align: center;
+    width: 80%;
+    padding-bottom: 5px;
+    border-bottom-style: solid;
+}
+
+.fEnter, .fReg{
+    background-color: rgba(243, 241, 241, 0.5);
+
+    width: 70%;
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    backdrop-filter: blur(10px);
+
+    border-radius: 20px;
+}
+
+.input-cont{
+    width:80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    padding-bottom: 5px;
+    border-bottom-style: solid;
+}
+.input-cont input{
+    margin: 0 10px;
+}
+.input-cont span{
+    text-align: left;
+    margin: 0 10px;
+}
+.input-cont input{
+    border-style: none;
+    background-color: #f5f5d6;
+    width: calc(2*(100%/3));
+}
+
+/*#fa7405*/
+@media screen and (max-width: 950px) {
+
+    .input-cont > span{
+        display: none;
+    }
+    .input-cont input{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 570px) {
+
+    .choice-cont{
+        width: 80%;
+    }
+    .reg-cont{
+        width: 80%;
+    }
+
+}
+@media screen and (max-width: 424px) {
+    .choice-reg, .choice-enter{
+        width: 70px;
+        font-size: 10px;
+        text-align: center;
+        height: 15px;
+    }
+    .fReg, .fEnter{
+        width: 90%;
+    }
+
+}
