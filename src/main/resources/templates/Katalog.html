@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Bo:Store</title>
@@ -20,25 +21,25 @@
     <div class="header-icon-cont">
 
         <div class="fa-books-cont">
-<!--            <i class="fa-light fa-book-open"></i>-->
+            <!--            <i class="fa-light fa-book-open"></i>-->
             <i class="fa-solid fa-book"></i>
 
-            <a href="Katalog.html">Каталог</a>
+            <a href="/katalog">Каталог</a>
         </div>
         <div class="fa-user-cont">
             <i class="fa-regular fa-user"></i>
-            <a href="Accaunt.html">Acc</a>
+            <a href="/accaunt">Войти</a>
         </div>
 
         <div class="fa-heart-cont">
             <i class="fa-regular fa-heart"></i>
-            <a href="Izbrannoe.html">Избранное</a>
+            <a href="/izbrannoe">Избранное</a>
         </div>
 
         <div class="fa-basket-shopping-cont">
-<!--            <i class="fa-light fa-basketball"></i>-->
+            <!--            <i class="fa-light fa-basketball"></i>-->
             <i class="fa-solid fa-basket-shopping"  > </i>
-            <a href="Korsina.html">Корзина</a>
+            <a href="/korsina">Корзина</a>
         </div>
 
 
@@ -52,13 +53,54 @@
     <ul style="list-style-type: none">
 <!--        <li>asd</li>-->
     </ul>
-    <div class="but-buy" id="bu1"><a href="Korsina.html">Оформить</a></div>
+    <form action="/addOrder" method="post" id="MyForm" style="display: none">
+        <input name="id" value="">
+    </form>
+    <button class="but-buy" id="bu1" form="MyForm" type="submit">Оформить</button>
 </label>
 <main>
-    <section class="new-season-cont">
-        <h2>Новинки сезона</h2>
+<!--    <section class="new-season-cont">-->
+<!--        <h2>Новинки сезона</h2>-->
+<!--        <article  class="card" th:each="product: ${products}" >-->
+<!--            <img th:src="@{'/images/' + ${product.image.id}}">-->
+<!--            <span >-->
+<!--                <p class="titlebook" th:text="${product.title}"></p>-->
+<!--               <p><br>-->
+<!--                   <i th:text="${product.author}">Вакуи К.</i>-->
+<!--               </p>-->
+<!--               <p><b th:text="${product.price}+' р.'">500 р.</b></p>-->
+<!--            </span>-->
+<!--            <div class="but">-->
+<!--                <button class="but-buy" type="submit" value="В корзину" th:form="'MyForm' + ${product.id}">В корзину</button>-->
+<!--                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>-->
+<!--                <form th:id="'MyForm' + ${product.id}" th:action="@{/qwe}" th:method="post" style="display: none">-->
+<!--                    <input type="hidden" th:name="id" th:value="${product.id}" />-->
+<!--                </form>-->
+<!--&lt;!&ndash;                <button class="but-buy" type="submit" value="В корзину" th:form="'MyForm' + ${product.id}">В корзину</button>&ndash;&gt;-->
+<!--            </div>-->
 
-        <article class="card">
+<!--        </article>-->
+
+        <section class="new-season-cont">
+            <h2>Новинки сезона</h2>
+            <article  class="card" th:each="product: ${products}" >
+
+                <img th:src="@{'/images/' + ${product.image.id}}">
+                <span >
+                    <p class="titlebook" th:text="${product.title}"></p>
+                   <p><br>
+                       <i th:text="${product.author}">Вакуи К.</i>
+                   </p>
+                   <p><b th:text="${product.price}+' р.'">500 р.</b></p>
+                </span>
+                <div class="but">
+                    <div class="but-buy"  >В корзину</div>
+                    <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>
+                </div>
+                <label th:text="${product.id}" style="display: none"></label>
+            </article>
+
+        <article class="card" >
             <img src="img/Tokio.jpg" alt="Раньше тут была картинка">
                <span> Токийские Мстители. Том 3
                    <p ><br>
@@ -214,5 +256,6 @@
 </footer>
 
 <script src="js/but.js"></script>
+
 </body>
 </html>

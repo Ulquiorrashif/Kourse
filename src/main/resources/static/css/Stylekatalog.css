@@ -118,6 +118,9 @@ section{
     /*padding: 5px;*/
     /*height: 68%;*/
 }
+.titlebook{
+    font-weight: 600;
+}
 .but{
     display: flex;
     flex-direction: row;
@@ -136,6 +139,11 @@ section{
     margin: 0;
     background-color: #fa7405;
     border-radius: 20px;
+    /*Новоое*/
+    border-width: 0;
+    /*height: 2em;*/
+    border-style: none;
+    box-sizing: unset;
 }
 
 .but-licke{

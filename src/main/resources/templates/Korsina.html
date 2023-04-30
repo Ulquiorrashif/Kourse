@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
   <link  rel="stylesheet" href="css/StyleFooter.css">
   <link  rel="stylesheet" href="css/StyleHead.css">
   <link  rel="stylesheet" href="css/StyleKorsina.css">
@@ -23,22 +26,22 @@
       <!--            <i class="fa-light fa-book-open"></i>-->
       <i class="fa-solid fa-book"></i>
 
-      <a href="Katalog.html">Каталог</a>
+      <a href="/katalog">Каталог</a>
     </div>
     <div class="fa-user-cont">
       <i class="fa-regular fa-user"></i>
-      <a href="Accaunt.html">Acc</a>
+      <a href="/accaunt">Войти</a>
     </div>
 
     <div class="fa-heart-cont">
       <i class="fa-regular fa-heart"></i>
-      <a href="Izbrannoe.html">Избранное</a>
+      <a href="/izbrannoe">Избранное</a>
     </div>
 
     <div class="fa-basket-shopping-cont">
       <!--            <i class="fa-light fa-basketball"></i>-->
       <i class="fa-solid fa-basket-shopping"  > </i>
-      <a href="#">Корзина</a>
+      <a href="/korsina">Корзина</a>
     </div>
 
 
@@ -48,25 +51,38 @@
 <main>
 
   <section>
-    <article>
+    <article th:each="order: ${orders}" >
       <input type="checkbox">
       <div class="img-cont"> <img src="img/Chelnehaha.jpg"></div>
-      <span class="info-cont">Человек, который не смеется </span>
+      <span class="info-cont" th:text="${order.}">Человек, который не смеется </span>
       <span class = "price">500р</span>
     </article>
 
-    <article>
-      <input type="checkbox">
-      <div class="img-cont"> <img src="img/Nitka.jpg"></div>
-      <span class="info-cont">Когда порвется нить </span>
-      <span class = "price">500р</span>
-    </article>
-    <article>
-      <input type="checkbox">
-      <div class="img-cont"> <img src="img/Klub.webp"></div>
-      <span class="info-cont">Клуб самоубийц </span>
-      <span class = "price">500р</span>
-    </article>
+<!--    <article >-->
+<!--      <input type="checkbox">-->
+<!--      <div class="img-cont"> <img src="img/Chelnehaha.jpg"></div>-->
+<!--      <span class="info-cont">Человек, который не смеется </span>-->
+<!--      <span class = "price">500р</span>-->
+<!--    </article>-->
+<!--    <article>-->
+<!--      <input type="checkbox">-->
+<!--      <div class="img-cont"> <img src="img/Chelnehaha.jpg"></div>-->
+<!--      <span class="info-cont">Человек, который не смеется </span>-->
+<!--      <span class = "price">500р</span>-->
+<!--    </article>-->
+
+<!--    <article>-->
+<!--      <input type="checkbox">-->
+<!--      <div class="img-cont"> <img src="img/Nitka.jpg"></div>-->
+<!--      <span class="info-cont">Когда порвется нить </span>-->
+<!--      <span class = "price">500р</span>-->
+<!--    </article>-->
+<!--    <article>-->
+<!--      <input type="checkbox">-->
+<!--      <div class="img-cont"> <img src="img/Klub.webp"></div>-->
+<!--      <span class="info-cont">Клуб самоубийц </span>-->
+<!--      <span class = "price">500р</span>-->
+<!--    </article>-->
   </section>
 
   <aside>
