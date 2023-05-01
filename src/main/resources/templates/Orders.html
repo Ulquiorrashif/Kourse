@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bo:Store</title>
+  <link  rel="stylesheet" href="css/StyleOrders.css">
+  <link rel="stylesheet" href="css/StyleHead.css">
+  <link rel="stylesheet" href="css/StyleFooter.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <!--    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<header>
+  <div class="header-img-cont"><img src="img/Logo.png"> <a href="index.html"></a></div>
+  <form class = "search" ><input type="search" placeholder="Поиск"></form>
+  <div class="header-icon-cont">
+
+    <div class="fa-books-cont">
+      <!--            <i class="fa-light fa-book-open"></i>-->
+      <i class="fa-solid fa-book"></i>
+
+      <a href="/katalog">Каталог</a>
+    </div>
+    <div class="fa-user-cont">
+      <i class="fa-regular fa-user"></i>
+      <a href="/accaunt">Войти</a>
+    </div>
+
+    <div class="fa-heart-cont">
+      <i class="fa-regular fa-heart"></i>
+      <a href="/order">Заказы</a>
+    </div>
+
+    <div class="fa-basket-shopping-cont">
+      <!--            <i class="fa-light fa-basketball"></i>-->
+      <i class="fa-solid fa-basket-shopping"  > </i>
+      <a href="/korsina">Корзина</a>
+    </div>
+
+
+  </div>
+</header>
+<h2>Ваши заказы</h2>
+<main>
+  <form id="MyForm" action="/qwe" method="post">
+
+    <section>
+      <article th:each="order: ${orders}" >
+<!--        <input type="checkbox" name="buy" th:value="${product.id}">-->
+<!--        <div class="img-cont"> <img th:src="@{'/images/' + ${product.image.id}}"></div>-->
+
+        <span class="info-cont" th:text="'Код: '+ ${order.id}">Человек, который не смеется </span>
+        <span class="info-cont" th:text="${order.datas.forname}">Человек, который не смеется </span>
+        <span class = "info-cont" th:text="'ул.' + ${order.datas.strasse}">500р</span>
+        <span class = "info-cont" th:text="${order.productList.size}+' шт.'">500р</span>
+        <span class = "price" th:text="${order.price}+' р.'">500р</span>
+      </article>
+
+      <!--    <article >-->
+      <!--      <input type="checkbox">-->
+      <!--      <div class="img-cont"> <img src="img/Chelnehaha.jpg"></div>-->
+      <!--      <span class="info-cont">Человек, который не смеется </span>-->
+      <!--      <span class = "price">500р</span>-->
+      <!--    </article>-->
+      <!--    <article>-->
+      <!--      <input type="checkbox">-->
+      <!--      <div class="img-cont"> <img src="img/Chelnehaha.jpg"></div>-->
+      <!--      <span class="info-cont">Человек, который не смеется </span>-->
+      <!--      <span class = "price">500р</span>-->
+      <!--    </article>-->
+
+      <!--    <article>-->
+      <!--      <input type="checkbox">-->
+      <!--      <div class="img-cont"> <img src="img/Nitka.jpg"></div>-->
+      <!--      <span class="info-cont">Когда порвется нить </span>-->
+      <!--      <span class = "price">500р</span>-->
+      <!--    </article>-->
+      <!--    <article>-->
+      <!--      <input type="checkbox">-->
+      <!--      <div class="img-cont"> <img src="img/Klub.webp"></div>-->
+      <!--      <span class="info-cont">Клуб самоубийц </span>-->
+      <!--      <span class = "price">500р</span>-->
+      <!--    </article>-->
+    </section>
+
+<!--    <aside>-->
+<!--      <span id ="title">Ваш заказ</span>-->
+<!--      <span id ="tov-name">Товаров</span>-->
+<!--      <span id ="tov-kol">1</span>-->
+<!--      <span id ="itog"><b> Итого:</b></span>-->
+<!--      <span id ="itog-price">1</span>-->
+<!--    </aside>-->
+
+<!--    <div id="Data">-->
+
+<!--      <h3 id="adres">Адрес доставки</h3>-->
+<!--      <input id="ul" type="text" name="strasse"  placeholder="Город,Улица">-->
+<!--      <div class="adres-cont">-->
+<!--        <input type="text"  name="kv" placeholder="Кв./Офис" value="1" >-->
+
+<!--        <input type="text"  name="etag" placeholder="Этаж" value="1" >-->
+
+<!--        <input type="text"  name="pod" placeholder="Подъезд" value="1">-->
+
+<!--        <input type="text"  name="domofon" placeholder="Домофон" value="1">-->
+<!--      </div>-->
+
+<!--      <h3>Получатель</h3>-->
+<!--      <input id="name" name="name" type="text" placeholder="Имя" value="1">-->
+
+<!--      <input  id="forname" name="forname" type="text" placeholder="Фамилия" value="1">-->
+
+<!--      <input  id="email"  name="vatername" type="text" placeholder="Отчество" value="1">-->
+
+<!--      <input  id="tel" type="tel" name="telefon" placeholder="Телефон" value="1">-->
+
+<!--      <button id="oform" form="MyForm" type="submit">Оформить зака</button>-->
+<!--    </div>-->
+  </form>
+
+</main>
+<footer>
+  <div class="store-information" >
+    <ul style="list-style-type: none">
+      <li>Книжный магазин</li>
+      <li>Russian Federation</li>
+      <li>000-000-0000</li>
+    </ul>
+  </div>
+
+  <address class="add2">
+    <ul style="list-style-type: none">
+      <li><i class="fa-brands fa-telegram"></i></li>
+      <li><i class="fa-brands fa-youtube"></i></li>
+      <li><i class="fa-brands fa-viber"></i></li>
+      <li><i class="fa-brands fa-instagram"></i></li>
+      <li><i class="fa-brands fa-vk"></i></li>
+    </ul>
+  </address>
+  <div class="information">
+    <ul style="list-style-type: none">
+      <li>О нас</li>
+      <li>Информация о доставке</li>
+      <li>Политика конфиденциальности</li>
+      <li>Правила и условия</li>
+      <li>Карта сайта</li>
+    </ul>
+  </div>
+  <div class="extras">
+    <ul style="list-style-type: none">
+      <li>Бренды</li>
+      <li>Подарочные сертификаты</li>
+      <li>Филиал</li>
+      <li><a href="index.html">Специальные предложения</a></li>
+      <li>Cвязаться с нами</li>
+    </ul>
+  </div>
+  <div class="my-account">
+    <ul style="list-style-type: none">
+      <li><a href="Accaunt.html">Мой аккаунт</a></li>
+      <li>История покупок</li>
+      <li>Заказы</li>
+      <li>Новостная рассылка</li>
+      <li>Назад</li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
