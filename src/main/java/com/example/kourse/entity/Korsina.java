@@ -3,6 +3,8 @@ package com.example.kourse.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ public class Korsina {
     private Long id;
     @OneToOne
     private  Users user;
-    @OneToMany(mappedBy = "korsina")
+    @ManyToMany (mappedBy = "korsina" )
+    @Cascade(CascadeType.REMOVE)
     private List<Product> productList= new ArrayList<>();
 }

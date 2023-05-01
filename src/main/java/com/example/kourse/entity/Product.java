@@ -18,20 +18,23 @@ public class Product {
     private String title;
     private String author;
     private int price;
+    private boolean buy;
+
 
     @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
     private Image image;
 
-    @ManyToMany(mappedBy = "productList")
-    private List<Orders> orderList = new ArrayList<>();
-    @ManyToOne
-    private Korsina korsina;
+    @ManyToMany
+    private List<Orders> orderList;
+    @ManyToMany
+    private List<Korsina>  korsina;
 
 
 
-    public Product(String title, String author, int price) {
+    public Product(String title, String author, int price, boolean buy) {
         this.title = title;
         this.author = author;
         this.price = price;
+        this.buy = buy;
     }
 }

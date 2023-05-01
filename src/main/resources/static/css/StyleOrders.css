@@ -32,12 +32,12 @@ a, a:active, a:hover{
 
 
 }
- h2{
+h2{
 
-     padding: 10px;
-     height: 50px;
-     width: 78vw;
-     margin: 0 10vw;
+    padding: 10px;
+    height: 50px;
+    width: 78vw;
+    margin: 0 10vw;
     /*width: 99%;*/
     /*border-style: solid;*/
     border-right: 5px  solid #fa7405;
@@ -81,7 +81,7 @@ aside{
     grid-area: itog-price;
 }
 section{
-    width: 70%;
+    width: 95%;
 
     display: flex;
     flex-direction: column;
@@ -104,6 +104,7 @@ article{
 }
 .info-cont{
     min-width: 220px;
+    width: calc(100%/4);
 }
 .img-cont{
     width: 60px;
@@ -132,7 +133,7 @@ img{
     gap: 10px;
 
 }
- main #Data input{
+main #Data input{
     width: 60%;
     border-radius: 3px;
 
@@ -169,8 +170,8 @@ h3, .adres-cont, #ul{
     #MyForm #Data{
         width: 90%;
         margin: 20px 0px;
-         padding: 5px 0px;
-         align-items: center;
+        padding: 5px 0px;
+        align-items: center;
     }
     .adres-cont{
         flex-direction: column;

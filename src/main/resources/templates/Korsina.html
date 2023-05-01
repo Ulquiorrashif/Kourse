@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      >
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -30,12 +29,13 @@
     </div>
     <div class="fa-user-cont">
       <i class="fa-regular fa-user"></i>
-      <a href="/accaunt">Войти</a>
+      <a href="/accaunt" sec:authorize="!isAuthenticated()">Войти</a>
+      <a href="/accaunt" sec:authorize="isAuthenticated()">Аккаунт</a>
     </div>
 
     <div class="fa-heart-cont">
       <i class="fa-regular fa-heart"></i>
-      <a href="/izbrannoe">Избранное</a>
+      <a href="/order">Заказы</a>
     </div>
 
     <div class="fa-basket-shopping-cont">
@@ -49,13 +49,14 @@
 </header>
 <h2>Оформление товара</h2>
 <main>
+  <form id="MyForm" action="/qwe" method="post">
 
   <section>
-    <article th:each="order: ${orders}" >
-      <input type="checkbox">
-      <div class="img-cont"> <img src="img/Chelnehaha.jpg"></div>
-      <span class="info-cont" th:text="${order.}">Человек, который не смеется </span>
-      <span class = "price">500р</span>
+    <article th:each="product: ${products}" >
+      <input type="checkbox" name="buy" th:value="${product.id}">
+      <div class="img-cont"> <img th:src="@{'/images/' + ${product.image.id}}"></div>
+      <span class="info-cont" th:text="${product.title}">Человек, который не смеется </span>
+      <span class = "price" th:text="${product.price}">500р</span>
     </article>
 
 <!--    <article >-->
@@ -92,30 +93,32 @@
     <span id ="itog"><b> Итого:</b></span>
     <span id ="itog-price">1</span>
   </aside>
-  <form action="http://localhost:8080/pup/add" method="post" >
+
+  <div id="Data">
 
     <h3 id="adres">Адрес доставки</h3>
     <input id="ul" type="text" name="strasse"  placeholder="Город,Улица">
     <div class="adres-cont">
-      <input type="text"  name="kv" placeholder="Кв./Офис" >
+      <input type="text"  name="kv" placeholder="Кв./Офис" value="1" >
 
-      <input type="text"  name="etag" placeholder="Этаж" >
+      <input type="text"  name="etag" placeholder="Этаж" value="1" >
 
-      <input type="text"  name="pod" placeholder="Подъезд">
+      <input type="text"  name="pod" placeholder="Подъезд" value="1">
 
-      <input type="text"  name="domofon" placeholder="Домофон">
+      <input type="text"  name="domofon" placeholder="Домофон" value="1">
     </div>
 
     <h3>Получатель</h3>
-    <input id="name" name="name" type="text" placeholder="Имя">
+    <input id="name" name="name" type="text" placeholder="Имя" value="1">
 
-    <input  id="forname" name="forname" type="text" placeholder="Фамилия">
+    <input  id="forname" name="forname" type="text" placeholder="Фамилия" value="1">
 
-    <input  id="email"  name="vatername" type="text" placeholder="Отчество">
+    <input  id="email"  name="vatername" type="text" placeholder="Отчество" value="1">
 
-    <input  id="tel" type="tel" name="telefon" placeholder="Телефон">
+    <input  id="tel" type="tel" name="telefon" placeholder="Телефон" value="1">
 
-    <button id="oform" >Оформить зака</button>
+    <button id="oform" form="MyForm" type="submit">Оформить зака</button>
+  </div>
   </form>
 
 </main>
@@ -159,7 +162,7 @@
     <ul style="list-style-type: none">
       <li><a href="Accaunt.html">Мой аккаунт</a></li>
       <li>История покупок</li>
-      <li>Избранное</li>
+      <li>Заказы</li>
       <li>Новостная рассылка</li>
       <li>Назад</li>
     </ul>

@@ -22,7 +22,8 @@ public class WebConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http)throws Exception{
         http.csrf().disable()
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/home","/katalog","/login","/reg","/accaunt","css/**","js/**","/images/{id}","img/**").permitAll()
+                        .requestMatchers("/home","/login","/reg","/accaunt","css/**","js/**","/images/{id}","img/**","/adminpage","/admin/reg").permitAll()
+                        .requestMatchers("/admin/**","/admin").hasRole("ADMIN")
 
 
                         .anyRequest().authenticated()

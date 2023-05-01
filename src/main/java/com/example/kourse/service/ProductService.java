@@ -44,10 +44,20 @@ public class ProductService {
         return image;
     }
     @Transactional
-    public List<Product> getAll(){
+    public List<Product> getAlltrue(){
         List<Product> list = new ArrayList<>();
         productRep.findAll().forEach(item->{
-            list.add(item);
+            if (item.isBuy())
+                list.add(item);
+        });
+        return list;
+    }
+    @Transactional
+    public List<Product> getAllfalse(){
+        List<Product> list = new ArrayList<>();
+        productRep.findAll().forEach(item->{
+            if (item.isBuy()==false)
+                list.add(item);
         });
         return list;
     }

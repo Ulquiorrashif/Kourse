@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Bo:Store</title>
@@ -28,12 +28,13 @@
         </div>
         <div class="fa-user-cont">
             <i class="fa-regular fa-user"></i>
-            <a href="/accaunt">Войти</a>
+            <a href="/accaunt" sec:authorize="!isAuthenticated()">Войти</a>
+            <a href="/accaunt" sec:authorize="isAuthenticated()">Аккаунт</a>
         </div>
 
         <div class="fa-heart-cont">
             <i class="fa-regular fa-heart"></i>
-            <a href="/izbrannoe">Избранное</a>
+            <a href="/order">Заказы</a>
         </div>
 
         <div class="fa-basket-shopping-cont">
@@ -59,6 +60,7 @@
     <button class="but-buy" id="bu1" form="MyForm" type="submit">Оформить</button>
 </label>
 <main>
+
 <!--    <section class="new-season-cont">-->
 <!--        <h2>Новинки сезона</h2>-->
 <!--        <article  class="card" th:each="product: ${products}" >-->
@@ -83,7 +85,7 @@
 
         <section class="new-season-cont">
             <h2>Новинки сезона</h2>
-            <article  class="card" th:each="product: ${products}" >
+            <article  class="card" th:each="product: ${productstrue}" >
 
                 <img th:src="@{'/images/' + ${product.image.id}}">
                 <span >
@@ -100,112 +102,128 @@
                 <label th:text="${product.id}" style="display: none"></label>
             </article>
 
-        <article class="card" >
-            <img src="img/Tokio.jpg" alt="Раньше тут была картинка">
-               <span> Токийские Мстители. Том 3
-                   <p ><br>
-                       <i>Вакуи К.</i></p>
-                   <p><b>500 р.</b></p>
-               </span>
-                <div class="but">
-                    <div class="but-buy">В корзину</div>
-                     <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>
-                </div>
+<!--        <article class="card" >-->
+<!--            <img src="img/Tokio.jpg" alt="Раньше тут была картинка">-->
+<!--               <span> Токийские Мстители. Том 3-->
+<!--                   <p ><br>-->
+<!--                       <i>Вакуи К.</i></p>-->
+<!--                   <p><b>500 р.</b></p>-->
+<!--               </span>-->
+<!--                <div class="but">-->
+<!--                    <div class="but-buy">В корзину</div>-->
+<!--                     <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>-->
+<!--                </div>-->
 
-        </article>
-        <article class="card">
-            <img src="img/Chelnehaha.jpg" alt="Раньше тут была картинка">
-            <span>Человек, который не смеется
-                <p ><br>
-                       <i>Роберт Льюис Стивенсон</i></p>
-                <p><b>500 р.</b></p>
-            </span>
-            <div class="but">
-                <div class="but-buy">В корзину</div>
-                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>
-            </div>
+<!--        </article>-->
+<!--        <article class="card">-->
+<!--            <img src="img/Chelnehaha.jpg" alt="Раньше тут была картинка">-->
+<!--            <span>Человек, который не смеется-->
+<!--                <p ><br>-->
+<!--                       <i>Роберт Льюис Стивенсон</i></p>-->
+<!--                <p><b>500 р.</b></p>-->
+<!--            </span>-->
+<!--            <div class="but">-->
+<!--                <div class="but-buy">В корзину</div>-->
+<!--                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>-->
+<!--            </div>-->
 
-        </article>
-        <article class="card">
-            <img src="img/Nitka.jpg" alt="Раньше тут была картинка">
-            <span> Когда порвется нить
-                <p ><br>
-                       <i>Эрлик Н.</i></p>
-                <p><b>500 р.</b></p>
-            </span>
-            <div class="but">
-                <div class="but-buy">В корзину</div>
-                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>
-            </div>
+<!--        </article>-->
+<!--        <article class="card">-->
+<!--            <img src="img/Nitka.jpg" alt="Раньше тут была картинка">-->
+<!--            <span> Когда порвется нить-->
+<!--                <p ><br>-->
+<!--                       <i>Эрлик Н.</i></p>-->
+<!--                <p><b>500 р.</b></p>-->
+<!--            </span>-->
+<!--            <div class="but">-->
+<!--                <div class="but-buy">В корзину</div>-->
+<!--                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>-->
+<!--            </div>-->
 
-        </article>
-        <article class="card">
-            <img src="img/Dwoinik.webp" alt="Раньше тут была картинка">
-            <span> Двойник Запада
-                <p ><br>
-                       <i>Арден Лия</i></p>
-                <p><b>500 р.</b></p>
-            </span>
-            <div class="but">
-                <div class="but-buy">В корзину</div>
-                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>
-            </div>
+<!--        </article>-->
+<!--        <article class="card">-->
+<!--            <img src="img/Dwoinik.webp" alt="Раньше тут была картинка">-->
+<!--            <span> Двойник Запада-->
+<!--                <p ><br>-->
+<!--                       <i>Арден Лия</i></p>-->
+<!--                <p><b>500 р.</b></p>-->
+<!--            </span>-->
+<!--            <div class="but">-->
+<!--                <div class="but-buy">В корзину</div>-->
+<!--                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>-->
+<!--            </div>-->
 
-        </article>
+<!--        </article>-->
     </section>
     <section class="action">
         <h2>Скоро в продаже</h2>
-        <article class="card">
-            <img src="img/Klub.webp" alt="Раньше тут была картинка">
-            <span> Клуб самоубийц
-                <p ><br>
-                       <i>Роберт Льюис Стивенсон</i></p>
-                <p><b>500 р.</b></p>
-            </span>
-            <div class="but">
-                <div class="but-buy">В корзину</div>
-                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>
-            </div>
+        <article  class="card" th:each="prodf: ${productsfalse}" >
 
-        </article>
-        <article class="card">
-            <img src="img/Opuh.jpg" alt="Раньше тут была картинка">
-            <span> Это злая разумная опухоль
-                <p ><br>
-                       <i>Уоттс П</i></p>
-                <p><b>500 р.</b></p>
-            </span>
+            <img th:src="@{'/images/' + ${prodf.image.id}}">
+            <span >
+                    <p class="titlebook" th:text="${prodf.title}"></p>
+                   <p><br>
+                       <i th:text="${prodf.author}">Вакуи К.</i>
+                   </p>
+                   <p><b th:text="${prodf.price}+' р.'">500 р.</b></p>
+                </span>
             <div class="but">
-                <div class="but-buy">В корзину</div>
+                <div class="but-buy"  >В корзину</div>
                 <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>
             </div>
+            <label th:text="${prodf.id}" style="display: none"></label>
+        </article>
+<!--        <article class="card">-->
+<!--            <img src="img/Klub.webp" alt="Раньше тут была картинка">-->
+<!--            <span> Клуб самоубийц-->
+<!--                <p ><br>-->
+<!--                       <i>Роберт Льюис Стивенсон</i></p>-->
+<!--                <p><b>500 р.</b></p>-->
+<!--            </span>-->
+<!--            <div class="but">-->
+<!--                <div class="but-buy">В корзину</div>-->
+<!--                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>-->
+<!--            </div>-->
 
-        </article>
-        <article class="card">
-            <img src="img/Harry.jpg" alt="Раньше тут была картинка">
-            <span>Гарри Поттер. Волшебный мир.
-                <p ><br>
-                       <i>Джоди Ревенсон</i></p>
-                <p><b>500 р.</b></p>
-            </span>
-            <div class="but">
-                <div class="but-buy">В корзину</div>
-                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>
-            </div>
-        </article>
-        <article class="card">
-            <img src="img/mi.webp" alt="Раньше тут была картинка">
-            <span> Мы
-                <p ><br>
-                       <i>Е.И. Замятин</i></p>
-                <p><b>500 р.</b></p>
-            </span>
-            <div class="but">
-                <div class="but-buy">В корзину</div>
-                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>
-            </div>
+<!--        </article>-->
+<!--        <article class="card">-->
+<!--            <img src="img/Opuh.jpg" alt="Раньше тут была картинка">-->
+<!--            <span> Это злая разумная опухоль-->
+<!--                <p ><br>-->
+<!--                       <i>Уоттс П</i></p>-->
+<!--                <p><b>500 р.</b></p>-->
+<!--            </span>-->
+<!--            <div class="but">-->
+<!--                <div class="but-buy">В корзину</div>-->
+<!--                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>-->
+<!--            </div>-->
 
-        </article>
+<!--        </article>-->
+<!--        <article class="card">-->
+<!--            <img src="img/Harry.jpg" alt="Раньше тут была картинка">-->
+<!--            <span>Гарри Поттер. Волшебный мир.-->
+<!--                <p ><br>-->
+<!--                       <i>Джоди Ревенсон</i></p>-->
+<!--                <p><b>500 р.</b></p>-->
+<!--            </span>-->
+<!--            <div class="but">-->
+<!--                <div class="but-buy">В корзину</div>-->
+<!--                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>-->
+<!--            </div>-->
+<!--        </article>-->
+<!--        <article class="card">-->
+<!--            <img src="img/mi.webp" alt="Раньше тут была картинка">-->
+<!--            <span> Мы-->
+<!--                <p ><br>-->
+<!--                       <i>Заказы</i></p>-->
+<!--                <p><b>500 р.</b></p>-->
+<!--            </span>-->
+<!--            <div class="but">-->
+<!--                <div class="but-buy">В корзину</div>-->
+<!--                <div class="but-licke"><i class="fa-solid fa-heart"></i><p>Желаемое</p></div>-->
+<!--            </div>-->
+
+<!--        </article>-->
     </section>
 </main>
 <footer>

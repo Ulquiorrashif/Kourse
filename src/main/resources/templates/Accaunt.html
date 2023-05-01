@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link  rel="stylesheet" href="css/StyleOrders.css">
     <link rel="stylesheet" href="css/StyleHead.css">
+    <link rel="stylesheet" href="css/StyleAdmin.css">
     <link rel="stylesheet" href="css/StyleFooter.css">
     <link rel="stylesheet" href="css/StyleAcc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -27,12 +31,13 @@
         </div>
         <div class="fa-user-cont">
             <i class="fa-regular fa-user"></i>
-            <a href="/accaunt">Войти</a>
+            <a href="/accaunt" sec:authorize="!isAuthenticated()">Войти</a>
+            <a href="/accaunt" sec:authorize="isAuthenticated()">Аккаунт</a>
         </div>
 
         <div class="fa-heart-cont">
             <i class="fa-regular fa-heart"></i>
-            <a href="/izbrannoe">Избранное</a>
+            <a href="/order" >Заказы</a>
         </div>
 
         <div class="fa-basket-shopping-cont">
@@ -44,12 +49,73 @@
 
     </div>
 </header>
-<main>
-    <div class="choice-cont">
+
+<h2 sec:authorize="hasRole('ROLE_USER')">Ваши заказы</h2>
+<main sec:authorize="hasRole('ROLE_USER')" >
+    <form id="MyForm" action="/qwe" method="post">
+
+        <section>
+            <article th:each="order: ${orders}" >
+                <!--        <input type="checkbox" name="buy" th:value="${product.id}">-->
+                <!--        <div class="img-cont"> <img th:src="@{'/images/' + ${product.image.id}}"></div>-->
+
+                <span class="info-cont" th:text="'Код: '+ ${order.id}">Человек, который не смеется </span>
+                <span class="info-cont" th:text="${order.datas.forname}">Человек, который не смеется </span>
+                <span class = "info-cont" th:text="'ул.' + ${order.datas.strasse}">500р</span>
+                <span class = "info-cont" th:text="${order.productList.size}+' шт.'">500р</span>
+                <span class = "price" th:text="${order.price}+' р.'">500р</span>
+            </article>
+
+            <!--    <article >-->
+            <!--      <input type="checkbox">-->
+            <!--      <div class="img-cont"> <img src="img/Chelnehaha.jpg"></div>-->
+            <!--      <span class="info-cont">Человек, который не смеется </span>-->
+            <!--      <span class = "price">500р</span>-->
+            <!--    </article>-->
+            <!--    <article>-->
+            <!--      <input type="checkbox">-->
+            <!--      <div class="img-cont"> <img src="img/Chelnehaha.jpg"></div>-->
+            <!--      <span class="info-cont">Человек, который не смеется </span>-->
+            <!--      <span class = "price">500р</span>-->
+            <!--    </article>-->
+
+            <!--    <article>-->
+            <!--      <input type="checkbox">-->
+            <!--      <div class="img-cont"> <img src="img/Nitka.jpg"></div>-->
+            <!--      <span class="info-cont">Когда порвется нить </span>-->
+            <!--      <span class = "price">500р</span>-->
+            <!--    </article>-->
+            <!--    <article>-->
+            <!--      <input type="checkbox">-->
+            <!--      <div class="img-cont"> <img src="img/Klub.webp"></div>-->
+            <!--      <span class="info-cont">Клуб самоубийц </span>-->
+            <!--      <span class = "price">500р</span>-->
+            <!--    </article>-->
+        </section>
+    </form>
+</main>
+<!--    <div th:if="${#authorization.expression('authorize(hasAuthority(''ROLE_ADMIN''))')}">-->
+<!--        АДМИН-->
+<!--    </div>-->
+<!--    <div th:if="${#authorization.expression('authorize(hasAuthority(''ROLE_USER''))')}">-->
+<!--        НЕАДМИН-->
+<!--    </div>-->
+
+
+    <!--    <div sec:authorize="isAuthenticated()">-->
+<!--        <p>Пользователь вошел в систему.</p>-->
+<!--    </div>-->
+<!--    <div sec:authorize="!isAuthenticated()">-->
+<!--        <p>Пользователь не вошел в систему.</p>-->
+<!--    </div>-->
+
+
+<main sec:authorize="!isAuthenticated()" class="auth">
+    <div class="choice-cont" sec:authorize="!isAuthenticated()">
         <div class="choice-reg">Регистрация</div>
         <div class="choice-enter">Войти</div>
     </div>
-    <div class="reg-cont">
+    <div class="reg-cont" sec:authorize="!isAuthenticated()" >
         <h3>Наши читатели</h3>
 <!--        <form class="fEnter">-->
 <!--            <h3 style="">Логин</h3>-->
@@ -94,6 +160,24 @@
 <!--        </form>-->
 
     </div>
+<!--    <div sec:authorize="hasRole('ROLE_ADMIN')">-->
+<!--        <p >АДМИН</p>-->
+<!--    </div>-->
+<!--    <div sec:authorize="hasRole('ROLE_USER')">-->
+<!--        <p >ЮЗЕР</p>-->
+<!--    </div>-->
+
+</main>
+<main sec:authorize="hasRole('ROLE_ADMIN')">
+    <form action="/admin/add" method="post" enctype="multipart/form-data" sec:authorize="hasRole('ROLE_ADMIN')" id="Data">
+        <input name="title" placeholder="title">
+        <input name="author" placeholder="author">
+        <input name="price" placeholder="price">
+        <input name="image" type="file">
+        <input name="buy" type="checkbox" value="true">
+        <input type="submit" value="Добавить">
+
+    </form>
 </main>
 <footer>
     <div class="store-information" >
@@ -135,7 +219,7 @@
         <ul style="list-style-type: none">
             <li><a href="Accaunt.html">Мой аккаунт</a></li>
             <li>История покупок</li>
-            <li>Избранное</li>
+            <li>Заказы</li>
             <li>Новостная рассылка</li>
             <li>Назад</li>
         </ul>

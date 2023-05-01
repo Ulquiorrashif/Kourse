@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Bo:Store</title>
@@ -29,12 +30,13 @@
         </div>
         <div class="fa-user-cont">
             <i class="fa-regular fa-user"></i>
-            <a href="/accaunt">Войти</a>
+            <a href="/accaunt" sec:authorize="!isAuthenticated()">Войти</a>
+            <a href="/accaunt" sec:authorize="isAuthenticated()">Аккаунт</a>
         </div>
 
         <div class="fa-heart-cont">
             <i class="fa-regular fa-heart"></i>
-            <a href="/izbrannoe">Избранное</a>
+            <a href="/order">Заказы</a>
         </div>
 
         <div class="fa-basket-shopping-cont">
@@ -147,7 +149,7 @@
         <ul style="list-style-type: none">
             <li><a href="Accaunt.html">Мой аккаунт</a></li>
             <li>История покупок</li>
-            <li>Избранное</li>
+            <li>Заказы</li>
             <li>Новостная рассылка</li>
             <li>Назад</li>
         </ul>

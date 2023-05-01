@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/StyleAdmin.css">
 </head>
 <body>
-<form action="/admin/add" method="post" enctype="multipart/form-data">
+<form action="/admin/add" method="post" enctype="multipart/form-data" id="Data">
   <input name="title" placeholder="title">
   <input name="author" placeholder="author">
   <input name="price" placeholder="price">
     <input name="image" type="file">
-  <input type="submit" value="Добавить">
+    <input name="buy" type="checkbox" value="true">
+    <input type="submit" value="Добавить">
 
 </form>
 
