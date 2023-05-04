@@ -61,4 +61,18 @@ public class ProductService {
         });
         return list;
     }
+    @Transactional
+    public void remove(Long id, String title){
+        if (id != null && title!=null){
+            productRep.removeProductById(id);
+            System.out.println("Товара удален "+  title+" "+id.toString());
+        } else if (id == null && title!=null) {
+            productRep.removeProductByTitle(title);
+            System.out.println("Товара удален "+title);
+        } else if (id != null && title==null) {
+            productRep.removeProductById(id);
+            System.out.println("Товара удален "+id.toString());
+        }else
+            System.out.println("Товара нет");
+    }
 }

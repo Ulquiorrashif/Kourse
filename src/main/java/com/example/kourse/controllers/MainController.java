@@ -62,14 +62,14 @@ public class MainController {
         productService.add(product,file);
         System.out.println(product.toString());
 
-        return "redirect:/admin";
+        return "redirect:/accaunt";
     }
-//    @PostMapping ("/qwe")
-//    public String qwe(String id)  throws IOException {
-//        System.out.println(id);
-//        return "redirect:/korsina";
-//
-//    }
+    @PostMapping ("/product/remove")
+    public String remove(@RequestParam(value = "id",required = false)Long id, @RequestParam(value = "title", required = false)String title)  throws IOException {
+        productService.remove(id,title);
+        return "redirect:/accaunt";
+
+    }
     @GetMapping("/hello")
     public String hello(Principal principal) {
         System.out.println(principal.getName());

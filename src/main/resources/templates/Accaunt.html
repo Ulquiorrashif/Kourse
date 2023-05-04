@@ -19,7 +19,7 @@
 </head>
 <body>
 <header>
-    <div class="header-img-cont"><img src="img/Logo.png"> <a href="index.html"></a></div>
+    <div class="header-img-cont"><img src="img/Logo.png"> <a href="/home"></a></div>
     <form class = "search"><input type="search" placeholder="Поиск"></form>
     <div class="header-icon-cont">
 
@@ -35,10 +35,10 @@
             <a href="/accaunt" sec:authorize="isAuthenticated()">Аккаунт</a>
         </div>
 
-        <div class="fa-heart-cont">
-            <i class="fa-regular fa-heart"></i>
-            <a href="/order" >Заказы</a>
-        </div>
+<!--        <div class="fa-heart-cont">-->
+<!--            <i class="fa-regular fa-heart"></i>-->
+<!--            <a href="/order" >Заказы</a>-->
+<!--        </div>-->
 
         <div class="fa-basket-shopping-cont">
             <!--            <i class="fa-light fa-basketball"></i>-->
@@ -168,17 +168,30 @@
 <!--    </div>-->
 
 </main>
-<main sec:authorize="hasRole('ROLE_ADMIN')">
-    <form action="/admin/add" method="post" enctype="multipart/form-data" sec:authorize="hasRole('ROLE_ADMIN')" id="Data">
+<main sec:authorize="hasRole('ROLE_ADMIN')" class="mainform">
+    <h2>Панель администратора</h2>
+    <form action="/admin/add" method="post" enctype="multipart/form-data" sec:authorize="hasRole('ROLE_ADMIN')" class="Data">
+        <h3>Добавить товар</h3>
         <input name="title" placeholder="title">
         <input name="author" placeholder="author">
         <input name="price" placeholder="price">
         <input name="image" type="file">
         <input name="buy" type="checkbox" value="true">
         <input type="submit" value="Добавить">
-
+    </form>
+    <form action="/product/remove" method="post" enctype="multipart/form-data" sec:authorize="hasRole('ROLE_ADMIN')" class="Data">
+        <h3>Удалить товар</h3>
+        <input name="title" placeholder="title">
+        <input name="id" placeholder="author">
+<!--        <input name="price" placeholder="price">-->
+<!--        <input name="image" type="file">-->
+<!--        <input name="buy" type="checkbox" value="true">-->
+        <input type="submit" value="Удалить">
     </form>
 </main>
+<form action="/logout" method="post" sec:authorize="isAuthenticated()" class="Data">
+    <input type="submit" value="Выйти">
+</form>
 <footer>
     <div class="store-information" >
         <ul style="list-style-type: none">

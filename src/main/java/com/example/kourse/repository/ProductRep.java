@@ -10,4 +10,6 @@ public interface ProductRep extends JpaRepository<Product,Long> {
     Product getProductsById(Long id);
     List<Product> getAllByKorsina(Korsina korsina);
     void removeProductByKorsina(Korsina korsina);
+    void removeProductByTitle(String title);
+    void removeProductById(Long Id);
 }
